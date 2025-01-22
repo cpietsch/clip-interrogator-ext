@@ -111,7 +111,7 @@ def interrogate(image, mode, caption=None):
     elif mode == 'caption':
         prompt = ci.generate_caption(image) if caption is None else caption
     elif mode == 'classic':
-        prompt = ci.interrogate_classic(image, caption=caption)
+        prompt = ci.interrogate_classic(image, max_flavors=0, caption=caption)
     elif mode == 'fast':
         prompt = ci.interrogate_fast(image, caption=caption)
     elif mode == 'negative':

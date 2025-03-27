@@ -111,7 +111,7 @@ def interrogate(image, mode, caption=None):
     elif mode == 'caption':
         prompt = ci.generate_caption(image) if caption is None else caption
     elif mode == 'classic':
-        prompt = ci.interrogate_classic(image, max_flavors=0, caption=caption)
+        prompt = ci.interrogate_classic(image, caption=caption)
     elif mode == 'fast':
         prompt = ci.interrogate_fast(image, caption=caption)
     elif mode == 'negative':
@@ -339,8 +339,8 @@ def custom_tab():
             image = gr.Image(type='pil', label="Image")
             with gr.Column():
                 desc = gr.Textbox(label="Unique description", lines=1, value="mycustomlist")
-                listfile = gr.Textbox(label="Listfile", lines=1, description="Absolute path or relative to the automatic folder. Example: list.txt")
-                listarray = gr.Textbox(label="Listarray", lines=3, value="hotdog, not hotdog", description="Format: term1, term2")
+                listfile = gr.Textbox(label="Listfile", lines=1, info="Absolute path or relative to the automatic folder. Example: list.txt")
+                listarray = gr.Textbox(label="Listarray", lines=3, value="hotdog, not hotdog", info="Format: term1, term2")
                 clip_model = gr.Dropdown(get_models(), value='ViT-L-14/openai', label='CLIP Model')
         prompt = gr.Textbox(label="Prompt", lines=2)
     with gr.Row():
